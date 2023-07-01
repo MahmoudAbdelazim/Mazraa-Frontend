@@ -5,23 +5,23 @@ import ProductDetails from "@/components/ProductDetails/ProductDetails";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 
-export async function getStaticPaths() {
-  try {
-    const res = await fetch(
-      process.env.NEXT_PUBLIC_BACKEND_URL + "/products/allProducts"
-    );
-    const data = await res.json();
-    const products = data.products;
-    const paths = products.map((product) => ({
-      params: {
-        id: product.title.split(" ").join("-") + "--ID--" + product.id,
-      },
-    }));
-    return { paths, fallback: "blocking" };
-  } catch (err) {
-    console.error(err);
-  }
-}
+// export async function getStaticPaths() {
+//   try {
+//     const res = await fetch(
+//       process.env.NEXT_PUBLIC_BACKEND_URL + "/products/allProducts"
+//     );
+//     const data = await res.json();
+//     const products = data.products;
+//     const paths = products.map((product) => ({
+//       params: {
+//         id: product.title.split(" ").join("-") + "--ID--" + product.id,
+//       },
+//     }));
+//     return { paths, fallback: "blocking" };
+//   } catch (err) {
+//     console.error(err);
+//   }
+// }
 
 export async function getStaticProps({ params }) {
   const idx = params.id.indexOf("--ID--");

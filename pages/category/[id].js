@@ -6,26 +6,26 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
-export async function getStaticPaths() {
-  try {
-    const res = await fetch(
-      process.env.NEXT_PUBLIC_BACKEND_URL + "/categories/allCategories"
-    );
-    const data = await res.json();
-    const categories = data.categories;
-    const paths = categories.map((category) => ({
-      params: {
-        id:
-          category.categoryNameArabic.split(" ").join("-") +
-          "--ID--" +
-          category.id,
-      },
-    }));
-    return { paths, fallback: "blocking" };
-  } catch (err) {
-    console.error(err);
-  }
-}
+// export async function getStaticPaths() {
+//   try {
+//     const res = await fetch(
+//       process.env.NEXT_PUBLIC_BACKEND_URL + "/categories/allCategories"
+//     );
+//     const data = await res.json();
+//     const categories = data.categories;
+//     const paths = categories.map((category) => ({
+//       params: {
+//         id:
+//           category.categoryNameArabic.split(" ").join("-") +
+//           "--ID--" +
+//           category.id,
+//       },
+//     }));
+//     return { paths, fallback: "blocking" };
+//   } catch (err) {
+//     console.error(err);
+//   }
+// }
 
 export async function getStaticProps({ params }) {
   const idx = params.id.indexOf("--ID--");
