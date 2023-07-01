@@ -1,0 +1,25 @@
+.footer {
+  display: flex;
+  padding: 30px 50px 50px;
+}
+
+.footer div {
+  flex: 50%;
+}
+
+@media only screen and (max-width: 1000px) {
+  .footer {
+    display: block;
+  }
+
+  .footer div {
+    flex: none;
+    margin-bottom: 30px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .footer {
+    padding: 30px 20px 50px;
+  }
+}

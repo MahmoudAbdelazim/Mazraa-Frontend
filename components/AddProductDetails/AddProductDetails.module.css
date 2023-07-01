@@ -1,0 +1,44 @@
+.AddProductDetails {
+  width: 70%;
+  margin: auto;
+  text-align: right;
+}
+
+.AddProductDetails input,
+.AddProductDetails textarea,
+.AddProductDetails select {
+  margin-bottom: 30px;
+}
+
+.AddProductDetails textarea {
+  height: 200px;
+}
+
+.AddProductDetails label {
+  font-size: 18px;
+}
+
+.submit {
+  padding: 8px 25px;
+  background-color: #00a043;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  transition: 0.2s;
+}
+
+.submit:hover {
+  background-color: #005624;
+}
+
+@media only screen and (max-width: 900px) {
+  .AddProductDetails {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .AddProductDetails {
+    width: 95%;
+  }
+}

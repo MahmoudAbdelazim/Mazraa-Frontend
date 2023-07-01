@@ -1,0 +1,49 @@
+.navList {
+  background-color: #1EBC61;
+  padding: 15px 30px 5px;
+  text-align: center;
+}
+
+.navList ul li {
+  display: inline-block;
+  margin: 0 50px;
+  color: white;
+  font-size: 20px;
+}
+
+.navList ul li a {
+  text-decoration: none;
+  color: white;
+  transition: 0.2s;
+}
+
+.navList ul li a:hover {
+  color: rgb(223, 223, 223);
+}
+
+@media only screen and (max-width: 1200px) {
+  .navList ul li {
+    margin: 0 20px;
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  .navList ul li {
+    margin: 0 10px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .navList ul li {
+    display: block;
+    margin: 10px 0px;
+  }
+
+  .navList {
+    padding: 15px 0;
+  }
+  .navList ul {
+    margin: 0;
+    padding: 0;
+  }
+}

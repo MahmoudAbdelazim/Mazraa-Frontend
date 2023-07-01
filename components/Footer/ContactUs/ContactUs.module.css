@@ -1,0 +1,81 @@
+.contactUs {
+  padding-right: 50px;
+  border-right: 2px solid #D9D9D9;
+}
+
+.contactUs h2 {
+  color: black;
+}
+
+.social a {
+  color: white;
+}
+
+.social li { 
+  display: inline-block;
+  color: white;
+  background-color: #A8A8A8;
+  border-radius: 100%;
+  font-size: 25px;
+  padding: 5px;
+  margin: 30px;
+  height: 45px;
+  width: 45px;
+  transition: 0.2s;
+}
+
+.social li:hover {
+  background-color: #757575;
+}
+
+.download li {
+  width: 150px;
+  display: inline-block;
+  font-size: 25px;
+  padding: 5px;
+  margin: 10px;
+  transition: 0.2s;
+}
+
+.download li:hover {
+  opacity: 0.8;
+}
+
+.download li img {
+  width: 150px;
+  height: 45px;
+}
+
+@media only screen and (max-width: 1300px) {
+  .social {
+    padding-left: 0 !important;
+  }
+
+  .social li {
+    margin: 20px;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .contactUs {
+    border-right: 0;
+    padding: 0;
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .social {
+    padding-left: 0 !important;
+  }
+
+  .social li {
+    margin: 20px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .social li {
+    margin: 5px;
+  }
+}

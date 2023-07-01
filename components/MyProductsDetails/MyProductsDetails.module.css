@@ -1,0 +1,45 @@
+.products {
+  margin-top: 20px;
+}
+
+.productsContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.products a {
+  flex: 25%;
+  flex-direction: initial;
+  text-decoration: none;
+  color: black;
+  border-radius: 20px;
+}
+
+.addProduct {
+  padding: 8px 25px;
+  background-color: #00a043;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  transition: 0.2s;
+  margin-bottom: 30px;
+}
+
+.addProduct:hover {
+  background-color: #005624;
+}
+
+@media only screen and (max-width: 1200px) {
+  .products {
+    flex-flow: wrap;
+  }
+  .products a {
+    flex: 50%;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .products a {
+    flex: 100%;
+  }
+}

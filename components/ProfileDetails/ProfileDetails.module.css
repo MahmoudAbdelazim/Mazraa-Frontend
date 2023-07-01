@@ -1,0 +1,117 @@
+.profileDetails {
+  display: flex;
+  padding: 50px;
+}
+
+.form {
+  flex: 60%;
+  padding-left: 10%;
+  padding-right: 5%;
+  border-right: 2px solid #d9d9d9;
+}
+
+.profileContainer {
+  padding-left: 5%;
+}
+
+.profileContainer img {
+  width: 290px;
+  height: 290px;
+  border-radius: 100%;
+}
+
+.profileContainer p {
+  font-size: 32px;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.inputs {
+  width: 60%;
+  margin-top: 0.7em;
+  padding: 2% 5%;
+  background: #1ebc61;
+  box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  border: none;
+  color: white;
+  font-size: 24px;
+  font-family: 'Sukar', sans-serif;
+  margin-left: 20px;
+}
+.inputs:focus {
+  outline: none;
+  font-family: 'Sukar', sans-serif;
+}
+.inputs::placeholder {
+  color: white;
+  font-family: 'Sukar', sans-serif;
+}
+
+.label {
+  width: 150px;
+  font-size: 20px;
+}
+
+.upload {
+  padding: 8px 25px;
+  background-color: #00a043;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  transition: 0.2s;
+}
+
+.upload:hover {
+  background-color: #005624;
+}
+
+.editButton {
+  padding: 8px 25px;
+  background-color: #00a043;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  transition: 0.2s;
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.editButton:hover {
+  background-color: #005624;
+}
+
+.message {
+  color: red;
+  margin-top: 20px;
+}
+
+@media only screen and (max-width: 1000px) {
+  .profileDetails {
+    padding: 10px;
+    flex-flow: wrap;
+  }
+  .form {
+    flex: 100%;
+  }
+
+  .profileContainer {
+    text-align: center;
+    padding-left: 0;
+    flex: 100%;
+    margin-bottom: 30px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .inputs {
+    width: 100%;
+    margin-top: 5px;
+    font-size: 18px;
+  }
+  .label {
+    width: auto;
+    margin-top: 20px;
+    font-size: 18px;
+  }
+}

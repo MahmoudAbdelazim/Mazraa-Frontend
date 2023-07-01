@@ -1,0 +1,128 @@
+.container {
+  margin: 50px 100px;
+  display: flex;
+  justify-content: space-between;
+}
+.container .inputsDiv {
+  width: 40%;
+}
+.title {
+  font-size: 36px;
+  font-weight: 700;
+  color: #1ebc61;
+}
+.inputs {
+  margin-top: 0.7em;
+  width: 90%;
+  padding: 2% 5%;
+  background: #1ebc61;
+  box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  border: none;
+  color: white;
+  font-size: 24px;
+  transition: 0.2s;
+}
+.inputs:focus {
+  outline: none;
+  background: #139248;
+}
+.inputs::placeholder {
+  color: white;
+}
+.loginBtn,
+.accountBtn {
+  box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  color: white;
+  border: none;
+  padding: 2%;
+  margin-top: 2em;
+  font-size: 24px;
+  width: 50%;
+}
+.loginBtn {
+  background: #1ebc61;
+  transition: 0.2s;
+  margin-right: 50%;
+}
+
+.loginBtn:hover {
+  background: #139248;
+}
+
+.accountBtn {
+  background: #007c21;
+  margin-right: 25%;
+}
+.inputsDiv hr {
+  width: 80%;
+  height: 0px;
+  border: 2px solid #a8a8a8;
+  margin-top: 2em;
+  margin-right: 10%;
+}
+
+.container .logoDiv {
+  width: 50%;
+}
+.subLogoDiv {
+  width: 90%;
+  margin: 1em auto;
+}
+.subLogoDiv .imgDiv {
+  /* background-image: url(../../assets/mazraa.png);
+    background-repeat: no-repeat;
+    background-size: contain; */
+  width: 70%;
+  height: 350px;
+  margin: 1em auto;
+}
+.subLogoDiv .txtDiv {
+  width: 70%;
+  margin: 2em auto;
+  color: #1ebc61;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.message {
+  color: red;
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+
+@media only screen and (max-width: 1000px) {
+  .container {
+    flex-flow: wrap;
+    margin: 30px;
+  }
+
+  .inputsDiv {
+    flex: 100%;
+  }
+
+  .inputs {
+    height: 50px;
+  }
+
+  .logoDiv {
+    display: none;
+  }
+
+  .loginBtn {
+    margin: 0 !important;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .inputs {
+    font-size: 18px;
+  }
+  
+  .loginBtn, .accountBtn {
+    font-size: 18px;
+  }
+}
