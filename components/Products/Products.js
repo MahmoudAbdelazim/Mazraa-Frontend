@@ -53,7 +53,7 @@ const Products = ({ category }) => {
       )}
       {products.map((product) => {
         return (
-          <a key={product.id} href={`/product/${product.id}`}>
+          <a key={product.id} href={`/product/${product.title.split(" ").join("-") + "--ID--" + product.id}`}>
             <ProductReview product={product} />
           </a>
         );

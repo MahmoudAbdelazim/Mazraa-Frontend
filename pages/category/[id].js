@@ -6,65 +6,42 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
-// export async function getStaticPaths() {
-//   try {
-//     const res = await fetch(
-//       process.env.NEXT_PUBLIC_BACKEND_URL + "/categories/allCategories"
-//     );
-//     const data = await res.json();
-//     const categories = data.categories;
-//     const paths = categories.map((category) => ({
-//       params: {
-//         id:
-//           category.categoryNameArabic.split(" ").join("-") +
-//           "--ID--" +
-//           category.id,
-//       },
-//     }));
-//     return { paths, fallback: "blocking" };
-//   } catch (err) {
-//     console.error(err);
-//   }
-// }
+export async function getStaticPaths() {
+  try {
+    const res = await fetch(
+      process.env.NEXT_PUBLIC_BACKEND_URL + "/categories/allCategories"
+    );
+    const data = await res.json();
+    const categories = data.categories;
+    const paths = categories.map((category) => ({
+      params: {
+        id:
+          category.categoryNameArabic.split(" ").join("-") +
+          "--ID--" +
+          category.id,
+      },
+    }));
+    return { paths, fallback: "blocking" };
+  } catch (err) {
+    console.error(err);
+  }
+}
 
-// export async function getStaticProps({ params }) {
-//   const idx = params.id.indexOf("--ID--");
-//   const id = Number(params.id.substring(idx + 6));
-//   const res = await fetch(
-//     process.env.NEXT_PUBLIC_BACKEND_URL + "/categories/category/" + Number(id)
-//   );
-//   const data = await res.json();
-//   return {
-//     props: {
-//       category: data.category,
-//     },
-//   };
-// }
+export async function getStaticProps({ params }) {
+  const idx = params.id.indexOf("--ID--");
+  const id = Number(params.id.substring(idx + 6));
+  const res = await fetch(
+    process.env.NEXT_PUBLIC_BACKEND_URL + "/categories/category/" + Number(id)
+  );
+  const data = await res.json();
+  return {
+    props: {
+      category: data.category,
+    },
+  };
+}
 
-const Category = () => {
-  const [category, setCategory] = useState({});
-
-  const router = useRouter();
-  const { id } = router.query;
-
-  useEffect(() => {
-    const fetchCategory = async () => {
-      try {
-        const res = await fetch(
-          process.env.NEXT_PUBLIC_BACKEND_URL +
-            "/categories/category/" +
-            Number(id)
-        );
-        const data = await res.json();
-        setCategory(data.category);
-      } catch (err) {
-        console.error(err);
-      }
-    };
-    if (id) {
-      fetchCategory();
-    }
-  }, [id]);
+const Category = ({category}) => {
   return (
     <>
       <Head>

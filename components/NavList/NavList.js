@@ -31,7 +31,7 @@ const NavList = () => {
         {categories.map((category) => {
           return (
             <li key={category.id}>
-              <a href={`/category/${category.id}`}>
+              <a href={`/category/${category.categoryNameArabic.split(" ").join("-") + "--ID--" + category.id}`}>
                 {category.categoryNameArabic}
               </a>
             </li>
