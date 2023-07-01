@@ -27,21 +27,44 @@ import { useEffect, useState } from "react";
 //   }
 // }
 
-export async function getStaticProps({ params }) {
-  const idx = params.id.indexOf("--ID--");
-  const id = Number(params.id.substring(idx + 6));
-  const res = await fetch(
-    process.env.NEXT_PUBLIC_BACKEND_URL + "/categories/category/" + Number(id)
-  );
-  const data = await res.json();
-  return {
-    props: {
-      category: data.category,
-    },
-  };
-}
+// export async function getStaticProps({ params }) {
+//   const idx = params.id.indexOf("--ID--");
+//   const id = Number(params.id.substring(idx + 6));
+//   const res = await fetch(
+//     process.env.NEXT_PUBLIC_BACKEND_URL + "/categories/category/" + Number(id)
+//   );
+//   const data = await res.json();
+//   return {
+//     props: {
+//       category: data.category,
+//     },
+//   };
+// }
 
-const Category = ({ category }) => {
+const Category = () => {
+  const [category, setCategory] = useState({});
+
+  const router = useRouter();
+  const { id } = router.query;
+
+  useEffect(() => {
+    const fetchCategory = async () => {
+      try {
+        const res = await fetch(
+          process.env.NEXT_PUBLIC_BACKEND_URL +
+            "/categories/category/" +
+            Number(id)
+        );
+        const data = await res.json();
+        setCategory(data.category);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    if (id) {
+      fetchCategory();
+    }
+  }, [id]);
   return (
     <>
       <Head>

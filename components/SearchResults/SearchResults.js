@@ -68,7 +68,7 @@ const SearchResults = ({ searchText }) => {
       <p>{msg}</p>
       {products.map((product) => {
         return (
-          <a key={product.id} href={`/product/${product.title.split(" ").join("-") + "--ID--" + product.id}`}>
+          <a key={product.id} href={`/product/${product.id}`}>
             <ProductReview product={product} />
           </a>
         );

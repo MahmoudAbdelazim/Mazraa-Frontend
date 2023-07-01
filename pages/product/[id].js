@@ -23,27 +23,50 @@ import { useEffect, useState } from "react";
 //   }
 // }
 
-export async function getStaticProps({ params }) {
-  const idx = params.id.indexOf("--ID--");
-  const id = Number(params.id.substring(idx + 6));
-  const res = await fetch(
-    process.env.NEXT_PUBLIC_BACKEND_URL + "/products/product/" + Number(id)
-  );
-  const data = await res.json();
-  const formattedText = data.product.details
-    .replace(/ /g, "&nbsp;")
-    .replace(/\n/g, "<br>");
-  data.product.details = formattedText;
-  return {
-    props: {
-      product: data.product,
-    },
-  };
-}
+// export async function getStaticProps({ params }) {
+//   const idx = params.id.indexOf("--ID--");
+//   const id = Number(params.id.substring(idx + 6));
+//   const res = await fetch(
+//     process.env.NEXT_PUBLIC_BACKEND_URL + "/products/product/" + Number(id)
+//   );
+//   const data = await res.json();
+//   const formattedText = data.product.details
+//     .replace(/ /g, "&nbsp;")
+//     .replace(/\n/g, "<br>");
+//   data.product.details = formattedText;
+//   return {
+//     props: {
+//       product: data.product,
+//     },
+//   };
+// }
 
-const Product = ({ product }) => {
+const Product = () => {
   const [loading, setLoading] = useState(false);
   const [productPhoto, setProductPhoto] = useState(null);
+  const [product, setProduct] = useState({});
+
+  const router = useRouter();
+  const { id } = router.query;
+
+  useEffect(() => {
+    const fetchProduct = async () => {
+      try {
+        const res = await fetch(
+          process.env.NEXT_PUBLIC_BACKEND_URL +
+            "/products/product/" +
+            Number(id)
+        );
+        const data = await res.json();
+        setProduct(data.product);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    if (id) {
+      fetchProduct();
+    }
+  }, [id]);
 
   useEffect(() => {
     const fetchProductPhoto = async () => {
