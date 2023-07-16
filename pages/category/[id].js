@@ -41,7 +41,7 @@ export async function getStaticProps({ params }) {
   };
 }
 
-const Category = ({category}) => {
+const Category = ({ category }) => {
   return (
     <>
       <Head>
@@ -68,7 +68,7 @@ const Category = ({category}) => {
           <Products category={category} />
         </div>
         <hr />
-        <Footer />
+        <Footer category={category} />
         <div style={{ height: "60px", backgroundColor: "#007C21" }}></div>
       </div>
     </>

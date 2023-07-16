@@ -2,10 +2,10 @@ import ContactUs from "./ContactUs/ContactUs";
 import styles from "./Footer.module.css";
 import FooterInfo from "./FooterInfo/FooterInfo";
 
-const Footer = () => {
+const Footer = ({category}) => {
   return (
     <div className={styles.footer}>
-      <FooterInfo />
+      <FooterInfo category={category} />
       <ContactUs />
     </div>
   );
